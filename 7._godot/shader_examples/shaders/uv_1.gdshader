@@ -1,14 +1,8 @@
 shader_type canvas_item;
 
-void vertex() {
-	// Called for every vertex the material is visible on.
-}
-
 void fragment() {
-	// Called for every pixel the material is visible on.
+	// UV es la posicion del pixel
+	// UV es un vec2, donde UV.x es la posicion en x (0, 1), UV.y es posicion en y (0, 1)
+	float diagonal_value = (UV.x + UV.y) / 2.0;
+	COLOR = vec4(diagonal_value, diagonal_value, 0.0, 1.0);
 }
-
-//void light() {
-//	// Called for every pixel for every light affecting the CanvasItem.
-//	// Uncomment to replace the default light processing function with this one.
-//}
