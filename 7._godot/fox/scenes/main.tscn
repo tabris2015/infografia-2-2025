@@ -1,5 +1,6 @@
-[gd_scene load_steps=13 format=4 uid="uid://c5d0lmxo7238y"]
+[gd_scene load_steps=15 format=4 uid="uid://c5d0lmxo7238y"]
 
+[ext_resource type="Shader" uid="uid://bfjf3ex2d5b4l" path="res://shaders/aberration.gdshader" id="1_tipki"]
 [ext_resource type="Texture2D" uid="uid://f5c86pyxevhv" path="res://assets/textures/World/GrassBackground.png" id="1_us8m7"]
 [ext_resource type="PackedScene" uid="uid://cl5g2chfojftj" path="res://scenes/bush.tscn" id="2_bvh6e"]
 [ext_resource type="PackedScene" uid="uid://cckfj5hq788cj" path="res://scenes/player.tscn" id="2_k06w8"]
@@ -7,6 +8,10 @@
 [ext_resource type="Texture2D" uid="uid://ls1d16h7bdbe" path="res://assets/textures/World/CliffTileset.png" id="3_58buj"]
 [ext_resource type="PackedScene" uid="uid://c6tq137wg7t8m" path="res://scenes/grass.tscn" id="6_uxuxb"]
 [ext_resource type="PackedScene" uid="uid://c3wshytpftn5q" path="res://scenes/bat.tscn" id="7_8kxu3"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_85g3d"]
+shader = ExtResource("1_tipki")
+shader_parameter/magnitude = 0.02
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_muijd"]
 texture = ExtResource("2_tfbww")
@@ -830,6 +835,16 @@ sources/1 = SubResource("TileSetAtlasSource_fxpdh")
 
 [node name="Main" type="Node2D"]
 y_sort_enabled = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_85g3d")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="TextureRectBackground" type="TextureRect" parent="."]
 offset_right = 320.0
